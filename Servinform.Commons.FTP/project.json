@@ -1,0 +1,71 @@
+{
+  "name": "Servinform.Commons.FTP",
+  "description": "Library containing basic methods for file manipulation on an FTP server.",
+  "main": "NewActivity.xaml",
+  "dependencies": {
+    "UiPath.FTP.Activities": "2.3.0",
+    "UiPath.System.Activities": "23.4.2"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "22.4.4.0",
+  "projectVersion": "1.0.9",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": [
+        "Implicit/Implicit Upload File or Folder.xaml",
+        "Explicit/Explicit Upload File or Folder.xaml",
+        "Implicit/Implicit Upload Folder.xaml",
+        "None/None Upload File.xaml",
+        "Implicit/comp_FTP_Implicit_DescargarDocumento.xaml",
+        "Explicit/Explicit Download Files in Folder.xaml",
+        "Implicit/comp_FTP_Implicit_MoverFichero.xaml",
+        "None/Explicit Upload File or Folder.xaml",
+        "None/None Upload File or Folder.xaml",
+        "Explicit/Explicit Upload File.xaml",
+        "Implicit/Implicit Upload File.xaml",
+        "Explicit/Explicit Upload Folder.xaml",
+        "None/None Upload Folder.xaml",
+        "Implicit/Implicit Download File.xaml",
+        "Explicit/Explicit Download File.xaml",
+        "None/None Download File.xaml",
+        "Implicit/Implicit Download Files In Folder.xaml",
+        "None/None Download Files in Folder.xaml"
+      ]
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {
+    "iconUrl": "https://servinform-content.s3-eu-west-1.amazonaws.com/images/icono.jpg"
+  },
+  "targetFramework": "Legacy"
+}

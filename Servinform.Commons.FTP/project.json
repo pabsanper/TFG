@@ -10,7 +10,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.4.4.0",
-  "projectVersion": "1.0.9",
+  "projectVersion": "1.0.11",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -40,7 +40,7 @@
         "Implicit/Implicit Upload Folder.xaml",
         "None/None Upload File.xaml",
         "Implicit/comp_FTP_Implicit_DescargarDocumento.xaml",
-        "Explicit/Explicit Download Files in Folder.xaml",
+        "Explicit/Explicit Move Files In Folder.xaml",
         "Implicit/comp_FTP_Implicit_MoverFichero.xaml",
         "None/Explicit Upload File or Folder.xaml",
         "None/None Upload File or Folder.xaml",
@@ -51,8 +51,14 @@
         "Implicit/Implicit Download File.xaml",
         "Explicit/Explicit Download File.xaml",
         "None/None Download File.xaml",
-        "Implicit/Implicit Download Files In Folder.xaml",
-        "None/None Download Files in Folder.xaml"
+        "Implicit/Implicit Download Files in Folder.xaml",
+        "None/None Download Files in Folder.xaml",
+        "Implicit/Implicit Move File.xaml",
+        "Explicit/Explicit Move File.xaml",
+        "None/None Move File.xaml",
+        "None/None Move Files In Folder.xaml",
+        "Implicit/Implicit Move Files In Folder.xaml",
+        "Explicit/Explicit Download Files in Folder.xaml"
       ]
     },
     "processOptions": {

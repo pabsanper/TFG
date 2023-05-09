@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>836,2047.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>861.6,2274.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Download_FTP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -76,10 +76,10 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Implicit Download File" sap:VirtualizedContainerService.HintSize="846.4,1982.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="None Download File" sap:VirtualizedContainerService.HintSize="872,2209.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="vDateTstart" />
     </Sequence.Variables>
@@ -88,13 +88,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" SecurePassword="{x:Null}" AcceptAllCertificates="True" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="With ftp session" FtpsMode="Implicit" sap:VirtualizedContainerService.HintSize="784,1870.4" Host="[Host]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" Password="[Pass]" PasswordInputModeSwitch="Password" Port="[Port]" SslProtocols="Default, TLS_1_1, TLS_1_2" Username="[User]">
+    <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" SecurePassword="{x:Null}" AcceptAllCertificates="True" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="With ftp session" FtpsMode="Implicit" sap:VirtualizedContainerService.HintSize="809.6,2097.6" Host="[Host]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" Password="[Pass]" PasswordInputModeSwitch="Password" Port="[Port]" SslProtocols="Default, TLS_1_1, TLS_1_2" Username="[User]">
       <p:WithFtpSession.Body>
         <ActivityAction x:TypeArguments="p:IFtpSession">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="p:IFtpSession" Name="FtpSession" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="750.4,1784" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="776,2011.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="vBoolExiste" />
               <Variable x:TypeArguments="scg:IEnumerable(p:FtpObjectInfo)" Name="vArryFtpObjectInfo" />
@@ -104,13 +104,13 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <p:DirectoryExists ContinueOnError="False" DisplayName="Directory Exists" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="688,90.4" sap2010:WorkflowViewState.IdRef="DirectoryExists_1" RemotePath="[FtpPath]" />
-            <If Condition="[not vBoolExiste]" sap:VirtualizedContainerService.HintSize="688,248.8" sap2010:WorkflowViewState.IdRef="If_2">
+            <p:DirectoryExists ContinueOnError="False" DisplayName="Directory Exists" Exists="[vBoolExiste]" sap:VirtualizedContainerService.HintSize="713.6,90.4" sap2010:WorkflowViewState.IdRef="DirectoryExists_1" RemotePath="[FtpPath]" />
+            <If Condition="[not vBoolExiste]" sap:VirtualizedContainerService.HintSize="713.6,248.8" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Then>
-                <Throw DisplayName="Throw" Exception="[new Exception(&quot;The Ftp path: &quot; + FtpPath+&quot; does not exist.&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Throw DisplayName="Throw" Exception="[new Exception(&quot;The Ftp path: &quot; + FtpPath+&quot; does not exist.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_3" />
               </If.Then>
               <If.Else>
-                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,52 +119,65 @@
                 </Sequence>
               </If.Else>
             </If>
-            <p:EnumerateObjects ContinueOnError="False" DisplayName="Enumerate Objects" Files="[vArryFtpObjectInfo]" sap:VirtualizedContainerService.HintSize="688,90.4" sap2010:WorkflowViewState.IdRef="EnumerateObjects_1" Recursive="False" RemotePath="[FtpPath]" />
-            <ui:ForEach x:TypeArguments="p:FtpObjectInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="688,1122.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[vArryFtpObjectInfo]">
+            <p:EnumerateObjects ContinueOnError="False" DisplayName="Enumerate Objects" Files="[vArryFtpObjectInfo]" sap:VirtualizedContainerService.HintSize="713.6,90.4" sap2010:WorkflowViewState.IdRef="EnumerateObjects_1" Recursive="False" RemotePath="[FtpPath]" />
+            <ui:ForEach x:TypeArguments="p:FtpObjectInfo" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="713.6,1349.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[vArryFtpObjectInfo]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="p:FtpObjectInfo">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="p:FtpObjectInfo" Name="item" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="652.8,997.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="678.4,1224.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <p:DownloadFiles ContinueOnError="False" Create="False" DisplayName="Download files" sap:VirtualizedContainerService.HintSize="590.4,139.2" sap2010:WorkflowViewState.IdRef="DownloadFiles_1" LocalPath="[DownloadPath+ if(item.Type.Equals(&quot;File&quot;),item.Name,&quot;&quot;)]" Overwrite="True" Recursive="False" RemotePath="[item.FullName]" />
-                    <Assign DisplayName="Assign tstart" sap:VirtualizedContainerService.HintSize="590.4,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="s:DateTime">[vDateTstart]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <While sap:VirtualizedContainerService.HintSize="590.4,584.8" sap2010:WorkflowViewState.IdRef="While_1">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <While.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="if(item.Type.ToString.Equals(&quot;File&quot;),not File.Exists(DownloadPath + item.Name), not  Directory.Exists(DownloadPath + item.Name))" />
-                      </While.Condition>
-                      <Sequence sap:VirtualizedContainerService.HintSize="545.6,425.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="483.2,24.8" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                        <If Condition="[Now - vDateTstart &gt;= new TimeSpan(0,0,30)]" sap:VirtualizedContainerService.HintSize="483.2,248.8" sap2010:WorkflowViewState.IdRef="If_3">
-                          <If.Then>
-                            <Throw Exception="[new Exception(&quot;The file &quot;+DownloadPath+&quot; could not be uploaded correctly.&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_2" />
-                          </If.Then>
-                        </If>
-                      </Sequence>
-                    </While>
+                    <If Condition="[item.Type.ToString.Equals(&quot;File&quot;)]" sap:VirtualizedContainerService.HintSize="636.8,1132" sap2010:WorkflowViewState.IdRef="If_7">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="601.6,943.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <p:DownloadFiles ContinueOnError="False" Create="False" DisplayName="Download files" sap:VirtualizedContainerService.HintSize="560,139.2" sap2010:WorkflowViewState.IdRef="DownloadFiles_1" LocalPath="[DownloadPath+ item.Name]" Overwrite="True" Recursive="False" RemotePath="[FtpPath+item.Name]" />
+                          <Assign DisplayName="Assign tstart" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[vDateTstart]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[not File.Exists(DownloadPath + item.Name)]" DisplayName="While" sap:VirtualizedContainerService.HintSize="560,571.2" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                            <ui:InterruptibleWhile.Body>
+                              <Sequence sap:VirtualizedContainerService.HintSize="524.8,404" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="483.2,22.4" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                                <If Condition="[Now - vDateTstart &gt;= new TimeSpan(0,0,30)]" sap:VirtualizedContainerService.HintSize="483.2,248.8" sap2010:WorkflowViewState.IdRef="If_8">
+                                  <If.Then>
+                                    <Throw Exception="[new Exception(&quot;The file &quot;+DownloadPath+ item.Name+&quot; could not be uploaded correctly.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                                  </If.Then>
+                                </If>
+                              </Sequence>
+                            </ui:InterruptibleWhile.Body>
+                          </ui:InterruptibleWhile>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>

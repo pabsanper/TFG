@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6ccbyzR/zYegGLc5TIMy0+KfDmPOMHXveQ3AB5taPNm248oKttbjQ6+aY41VOkVy1rd+QmZQvb9/N74bGY5wiQ==",
+  "dgSpecHash": "roLUSpuv5VCjpl8F8JiZCoozHkGYm7vlm64FHtrtxW2G8OoyjmokkbTQh9ehwAZIeklw4zY/TCE21AdyzwQnqw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\psantos.perez\\Desktop\\LibreriaTFG\\Servinform.Commons.FTP\\.local\\",
+  "projectFilePath": "C:\\Users\\psantos.perez\\Desktop\\LibreriaTFG - copia\\Servinform.Commons.FTP\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\psantos.perez\\.nuget\\packages\\csvhelper\\16.0.0\\csvhelper.16.0.0.nupkg.sha512",
     "C:\\Users\\psantos.perez\\.nuget\\packages\\fluentftp\\34.0.0\\fluentftp.34.0.0.nupkg.sha512",

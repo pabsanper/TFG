@@ -1,0 +1,534 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Upload File FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "fileName&Sequence_11",
+        "fileExist&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpPath",
+        "in_Port",
+        "in_Mode",
+        "in_LocalPath",
+        "in_Pass",
+        "in_User",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/Implicit Upload File or Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vDateTstart&Sequence_1",
+        "vBoolFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "LocalPath",
+        "SftpPath",
+        "Pass",
+        "User",
+        "Port",
+        "Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/comp_SFTP_SubirDocumento.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vDateTstart&Sequence_1",
+        "vBoolFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrSftpHost",
+        "in_IntSftport",
+        "in_StrSftpUser",
+        "in_StrSftpPass",
+        "in_StrSftpPath",
+        "in_StrLocalPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Explicit/Explicit Upload File or Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vDateTstart&Sequence_1",
+        "vBoolFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "Host",
+        "Port",
+        "User",
+        "Pass",
+        "SftpPath",
+        "LocalPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "None/None Upload File or Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vDateTstart&Sequence_1",
+        "vBoolFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "Host",
+        "Port",
+        "User",
+        "Pass",
+        "SftpPath",
+        "LocalPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Upload Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "FolderExist&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpPath",
+        "in_Port",
+        "in_Mode",
+        "in_LocalPath",
+        "in_Pass",
+        "in_User",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/Implicit Move File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "BoolSourceFileExist&Sequence_1",
+        "BoolFileExist&Sequence_2",
+        "vDateTstart&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpDestinationPath",
+        "in_FtpSourcePath",
+        "in_Port",
+        "in_User",
+        "in_Pass",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/Implicit Upload Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Tstart&Sequence_1",
+        "FolderExist&Sequence_1",
+        "FolderName&Sequence_3",
+        "PathSplit&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpPath",
+        "in_LocalPath",
+        "in_Pass",
+        "in_User",
+        "in_Port",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/Implicit Upload File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "BoolFileExist&Sequence_1",
+        "DateTstart&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpPath",
+        "in_LocalPath",
+        "in_Pass",
+        "in_User",
+        "in_Port",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/Implicit Download File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolExists&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Port",
+        "in_FtpPath",
+        "in_DownloadPath",
+        "in_User",
+        "in_Pass",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Download File FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "folderExist&Sequence_11",
+        "fileName&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_DownloadPath",
+        "in_FtpPath",
+        "in_Port",
+        "in_Mode",
+        "in_Pass",
+        "in_User",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Download Files In Folder FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "folderExist&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_DownloadPath",
+        "in_FtpPath",
+        "in_Port",
+        "in_Mode",
+        "in_Pass",
+        "in_User",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Move File FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "FileName&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpDestinationPath",
+        "in_FtpSourcePath",
+        "in_Port",
+        "in_Mode",
+        "in_Pass",
+        "in_User",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Move Files in Folder FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpDestinationPath",
+        "in_FtpSourcePath",
+        "in_Port",
+        "in_Mode",
+        "in_Pass",
+        "in_User",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/Implicit Download Files in Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "BoolExists&Sequence_1",
+        "DateTstart&Sequence_2",
+        "FtpObjectInfo&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Port",
+        "in_FtpPath",
+        "in_DownloadPath",
+        "in_User",
+        "in_Pass",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Implicit/Implicit Move Files In Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolFileExist&Sequence_2",
+        "FtpObjectInfo&Sequence_10",
+        "BoolExistSource&Sequence_10"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_FtpDestinationPath",
+        "in_FtpSourcePath",
+        "in_Port",
+        "in_User",
+        "in_Pass",
+        "in_Host"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Explicit/Explicit Download File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolExists&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_DownloadPath",
+        "in_FtpPath",
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_Port"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Explicit/Explicit Download Files in Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolExists&Sequence_1",
+        "FtpObjectInfo&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_DownloadPath",
+        "in_FtpPath",
+        "in_Port"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Explicit/Explicit Move File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vDateTstart&Sequence_2",
+        "BoolFileExist&Sequence_2",
+        "BoolSourceFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_Port",
+        "in_FtpSourcePath",
+        "in_FtpDestinationPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Explicit/Explicit Move Files In Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolFileExist&Sequence_2",
+        "FtpObjectInfo&Sequence_10",
+        "BoolExistSource&Sequence_10"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_Port",
+        "in_FtpSourcePath",
+        "in_FtpDestinationPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Explicit/Explicit Upload File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_1",
+        "BoolFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Port",
+        "in_User",
+        "in_Pass",
+        "in_LocalPath",
+        "in_FtpPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Explicit/Explicit Upload Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Tstart&Sequence_1",
+        "FolderExist&Sequence_1",
+        "FolderName&Sequence_3",
+        "PathSplit&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Port",
+        "in_User",
+        "in_Pass",
+        "in_LocalPath",
+        "in_FtpPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "None/None Download File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolExists&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_DownloadPath",
+        "in_FtpPath",
+        "in_Port"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "None/None Download Files in Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolExists&Sequence_1",
+        "FtpObjectInfo&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_DownloadPath",
+        "in_FtpPath",
+        "in_Port"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "None/None Move File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vDateTstart&Sequence_2",
+        "BoolFileExist&Sequence_2",
+        "BoolSourceFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_Port",
+        "in_FtpSourcePath",
+        "in_FtpDestinationPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "None/None Move Files In Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_2",
+        "BoolFileExist&Sequence_2",
+        "FtpObjectInfo&Sequence_10",
+        "BoolExistSource&Sequence_10"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Pass",
+        "in_User",
+        "in_Port",
+        "in_FtpSourcePath",
+        "in_FtpDestinationPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "None/None Upload File.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "DateTstart&Sequence_1",
+        "BoolFileExist&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Port",
+        "in_User",
+        "in_Pass",
+        "in_LocalPath",
+        "in_FtpPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "None/None Upload Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Tstart&Sequence_1",
+        "FolderExist&Sequence_1",
+        "FolderName&Sequence_3",
+        "PathSplit&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Host",
+        "in_Port",
+        "in_User",
+        "in_Pass",
+        "in_LocalPath",
+        "in_FtpPath"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    }
+  ]
+}

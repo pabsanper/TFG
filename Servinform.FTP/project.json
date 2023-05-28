@@ -65,7 +65,50 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "81ba5cc4-e2dd-46f8-bc47-33002a5d9042",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Test\\TestCase - Download File FTP.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "925edf0c-8606-4648-98e4-e3d425603247",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Test\\TestCase - Download Files In Folder.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "a1e5177d-8453-4a31-b448-111fa836055c",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Test\\TestCase - Upload File FTP.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "d8defb0d-5212-46dc-b66b-32b22d3561e1",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Test\\TestCase - Upload Folder FTP.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "178379e3-db49-40d1-914c-923316eeda50",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Test\\TestCase - Move File FTP.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "5cc7c5f0-0884-46ea-afb2-459bd75efc11",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Test\\TestCase - Move Files in Folder FTP.xaml"
+      }
+    ],
     "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",

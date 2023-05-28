@@ -100,7 +100,7 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Upload Folder.xaml",
+      "Path": "Upload Folder FTP.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
         "FolderExist&Sequence_11"
@@ -527,6 +527,85 @@
         "in_LocalPath",
         "in_FtpPath"
       ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test/TestCase - Download File FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "host&Sequence_5",
+        "user&Sequence_5",
+        "pass&Sequence_5",
+        "port&Sequence_5",
+        "ftpPath&Sequence_5",
+        "downloadPath&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test/TestCase - Download Files In Folder.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "downloadPath&Sequence_1",
+        "host&Sequence_5",
+        "user&Sequence_5",
+        "pass&Sequence_5",
+        "port&Sequence_5",
+        "ftpPath&Sequence_5"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test/TestCase - Upload File FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "localFolder&Sequence_1",
+        "ftpPath&Sequence_1",
+        "port&Sequence_1",
+        "pass&Sequence_1",
+        "user&Sequence_1",
+        "host&Sequence_1",
+        "uploadFile&Sequence_1",
+        "localPath&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test/TestCase - Upload Folder FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "localPath&Sequence_1",
+        "uploadFile&Sequence_1",
+        "host&Sequence_1",
+        "user&Sequence_1",
+        "pass&Sequence_1",
+        "port&Sequence_1",
+        "ftpPath&Sequence_1",
+        "localFolder&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test/TestCase - Move File FTP.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "user&Sequence_1",
+        "port&Sequence_1",
+        "pass&Sequence_1",
+        "host&Sequence_1",
+        "ftpSource&Sequence_1",
+        "ftpDestination&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": null,
       "AddedNamespaces": null
     }

@@ -57,14 +57,15 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="TestCase___Move_Files_in_Folder" sap:VirtualizedContainerService.HintSize="926.4,3242.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="sourceFolder" />
       <Variable x:TypeArguments="x:String" Name="destinationFolder" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolError" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -127,16 +128,19 @@
             <ui:LogMessage DisplayName="Log Info Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Run test that move only txt files&quot;]" />
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move Files In Folder.xaml - Invoke Workflow File With Extension" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Move Files In Folder.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FileExtension">
+                <InArgument x:TypeArguments="x:String" x:Key="FileExtension">
                   <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="fileExtension" />
                 </InArgument>
-                <InArgument x:TypeArguments="x:Boolean" x:Key="in_Overwrite" />
-                <InArgument x:TypeArguments="x:String" x:Key="in_SourceFolder">
+                <InArgument x:TypeArguments="x:Boolean" x:Key="Overwrite" />
+                <InArgument x:TypeArguments="x:String" x:Key="SourceFolder">
                   <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="sourceFolder" />
                 </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_DestinationFolder">
+                <InArgument x:TypeArguments="x:String" x:Key="DestinationFolder">
                   <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="destinationFolder" />
                 </InArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="ExistingError">
+                  <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolError" />
+                </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -146,7 +150,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[(not Directory.GetFiles(sourceFolder).Length.Equals(3)) AND Directory.GetFiles(destinationFolder).Length.Equals(1)]" DisplayName="If file has been moved" sap:VirtualizedContainerService.HintSize="702.4,252.8" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[not boolError]" DisplayName="If file has been moved" sap:VirtualizedContainerService.HintSize="702.4,252.8" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <ui:LogMessage DisplayName="Log Txt Test Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Succeed test, txt file has been moved&quot;]" />
               </If.Then>
@@ -168,14 +172,17 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move Files In Folder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Move Files In Folder.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_FileExtension" />
-                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_Overwrite" />
-                    <InArgument x:TypeArguments="x:String" x:Key="in_SourceFolder">
+                    <InArgument x:TypeArguments="x:String" x:Key="FileExtension" />
+                    <InArgument x:TypeArguments="x:Boolean" x:Key="Overwrite" />
+                    <InArgument x:TypeArguments="x:String" x:Key="SourceFolder">
                       <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="sourceFolder" />
                     </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_DestinationFolder">
+                    <InArgument x:TypeArguments="x:String" x:Key="DestinationFolder">
                       <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="destinationFolder" />
                     </InArgument>
+                    <OutArgument x:TypeArguments="x:Boolean" x:Key="ExistingError">
+                      <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolError" />
+                    </OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
@@ -185,7 +192,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[Directory.GetFiles(sourceFolder).Length.Equals(0) AND Directory.GetFiles(destinationFolder).Length.Equals(3)]" DisplayName="If all files have been moved" sap:VirtualizedContainerService.HintSize="577.6,252.8" sap2010:WorkflowViewState.IdRef="If_2">
+                <If Condition="[not boolError]" DisplayName="If all files have been moved" sap:VirtualizedContainerService.HintSize="577.6,252.8" sap2010:WorkflowViewState.IdRef="If_2">
                   <If.Then>
                     <ui:LogMessage DisplayName="Log All files test Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Succeed test, all files have been moved&quot;]" />
                   </If.Then>

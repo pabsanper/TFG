@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_Download_File_FTP" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="796,2222.4" sap2010:WorkflowViewState.IdRef="TestCase_Download_File_FTP_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/ftp" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TestCase_Download_File_FTP" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="861.6,2414.4" sap2010:WorkflowViewState.IdRef="TestCase_Download_File_FTP_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/ftp" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -65,10 +65,9 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>UiPath.FTP</AssemblyReference>
       <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCase_Upload_File_FTP" sap:VirtualizedContainerService.HintSize="657.6,2157.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCase_Upload_File_FTP" sap:VirtualizedContainerService.HintSize="801.6,2349.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="localPath" />
       <Variable x:TypeArguments="upr:ILocalResource" Name="uploadFile" />
@@ -78,21 +77,23 @@
       <Variable x:TypeArguments="x:Int32" Name="port" />
       <Variable x:TypeArguments="x:String" Name="ftpPath" />
       <Variable x:TypeArguments="x:String" Name="localFolder" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolError" />
+      <Variable x:TypeArguments="x:String" Name="mode" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Upload File" sap:VirtualizedContainerService.HintSize="595.2,2045.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Upload File" sap:VirtualizedContainerService.HintSize="739.2,2237.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="558.4,1814.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="702.4,2006.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="496,957.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="640,957.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,13 +120,13 @@
               </Assign.Value>
             </Assign>
           </Sequence>
-          <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="496,460" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="640,492" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Ftp Assign" sap:VirtualizedContainerService.HintSize="423.2,194.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign DisplayName="Multiple Ftp Assign" sap:VirtualizedContainerService.HintSize="423.2,226.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -133,7 +134,7 @@
                       <OutArgument x:TypeArguments="x:String">[host]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">192.168.1.144</InArgument>
+                      <InArgument x:TypeArguments="x:String">192.168.1.141</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
@@ -160,33 +161,49 @@
                       <InArgument x:TypeArguments="x:String">/subida</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[mode]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">EXPLICIT</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload Folder FTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Upload Folder FTP.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Upload Folder FTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="423.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Upload Folder FTP.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Host">[host]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_User">[user]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Pass">[pass]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_LocalPath">[localPath]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Mode">EXPLICIT</InArgument>
-                <InArgument x:TypeArguments="x:Int32" x:Key="in_Port">[port]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FtpPath">[ftpPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Host">[host]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="User">[user]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Pass">[pass]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="LocalPath">[localPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Mode">[mode]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="Port">[port]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="FtpPath">[ftpPath]</InArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="ExistingError">[boolError]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
-          <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="496,204.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="640,364.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log All files test Message" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Succeed test, file has been uploaded&quot;]" />
+            <If Condition="[not boolError]" DisplayName="If file has been uploaded" sap:VirtualizedContainerService.HintSize="577.6,252.8" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <ui:LogMessage DisplayName="Log All files test Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Succeed test, file has been uploaded&quot;]" />
+              </If.Then>
+              <If.Else>
+                <Throw DisplayName="Fail File" Exception="[new Exception(&quot;Test failed, any file has not been uploaded&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_2" />
+              </If.Else>
+            </If>
           </Sequence>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="548.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="705.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -202,14 +219,14 @@
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence sap:VirtualizedContainerService.HintSize="545.6,521.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence sap:VirtualizedContainerService.HintSize="545.6,561.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:DeleteFolderX DisplayName="Delete Local Folder" sap:VirtualizedContainerService.HintSize="483.2,80.8" sap2010:WorkflowViewState.IdRef="DeleteFolderX_2" Path="[localFolder]" Recursive="True" />
-          <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" SecurePassword="{x:Null}" AcceptAllCertificates="True" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="FTP Scope Delete" FtpsMode="Explicit" sap:VirtualizedContainerService.HintSize="483.2,288.8" Host="[host]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" Password="[pass]" PasswordInputModeSwitch="Password" Port="[port]" SslProtocols="Default, TLS_1_1, TLS_1_2" Username="[user]">
+          <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" SecurePassword="{x:Null}" AcceptAllCertificates="True" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="FTP Scope Delete" FtpsMode="Explicit" sap:VirtualizedContainerService.HintSize="483.2,328.8" Host="[host]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" Password="[pass]" PasswordInputModeSwitch="Password" Port="[port]" SslProtocols="Default, TLS_1_1, TLS_1_2" Username="[user]">
             <p:WithFtpSession.Body>
               <ActivityAction x:TypeArguments="p:IFtpSession">
                 <ActivityAction.Argument>

@@ -16,8 +16,9 @@
         "countFile&Sequence_14"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_FileExtension",
-        "in_PathFolder"
+        "PathFolder",
+        "ExistingError",
+        "FileExtension"
       ],
       "ConstantsSectionElementsOrder": null,
       "AddedNamespaces": null
@@ -37,15 +38,16 @@
       "Path": "Move Files In Folder.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "fileName&Sequence_32",
         "countError&Sequence_14",
-        "countFile&Sequence_14",
-        "fileName&Sequence_9"
+        "countFile&Sequence_14"
       ],
       "ArgumentsSectionElementsOrder": [
-        "in_DestinationFolder",
-        "in_SourceFolder",
-        "in_Overwrite",
-        "in_FileExtension"
+        "ExistingError",
+        "DestinationFolder",
+        "SourceFolder",
+        "Overwrite",
+        "FileExtension"
       ],
       "ConstantsSectionElementsOrder": null,
       "AddedNamespaces": null
@@ -67,6 +69,7 @@
       "Path": "Test/TestCase - Move Files in Folder.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "boolError&Sequence_1",
         "destinationFolder&Sequence_1",
         "sourceFolder&Sequence_1",
         "fileExtension&Sequence_3"
@@ -79,6 +82,7 @@
       "Path": "Test/TestCase - Delete Files in Folder.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "boolError&Sequence_1",
         "newFolder&Sequence_1",
         "fileExtension&Sequence_3"
       ],

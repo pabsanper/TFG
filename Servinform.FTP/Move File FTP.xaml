@@ -1,38 +1,39 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Upload_FTP" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property sap2010:Annotation.AnnotationText="FTP server host." Name="in_Host" Type="InArgument(x:String)">
+    <x:Property sap2010:Annotation.AnnotationText="FTP server host." Name="Host" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property sap2010:Annotation.AnnotationText="User to access the FTP server." Name="in_User" Type="InArgument(x:String)">
+    <x:Property sap2010:Annotation.AnnotationText="User to access the FTP server." Name="User" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property sap2010:Annotation.AnnotationText="Password to access the FTP server." Name="in_Pass" Type="InArgument(x:String)">
+    <x:Property sap2010:Annotation.AnnotationText="Password to access the FTP server." Name="Pass" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property sap2010:Annotation.AnnotationText="Indicates the connection mode, it can take two values:&#xA;&#xA;-EXPLICT: starts in non-secure mode and the client must emplicitly request a secure connection. It connects to port 21.&#xA;&#xA;- IMPLICIT: The client connects directly to port 990, port dedicated to secure connections.&#xA;&#xA;In case of taking any other value (including empty), the connection mode will be NONE and the value of the indicated port will be taken." Name="in_Mode" Type="InArgument(x:String)" />
-    <x:Property sap2010:Annotation.AnnotationText="Port to use for FTP connection." Name="in_Port" Type="InArgument(x:Int32)" />
-    <x:Property sap2010:Annotation.AnnotationText="Source path of the file to move in FTP." Name="in_FtpSourcePath" Type="InArgument(x:String)">
+    <x:Property sap2010:Annotation.AnnotationText="Indicates the connection mode, it can take two values:&#xA;&#xA;-EXPLICT: starts in non-secure mode and the client must emplicitly request a secure connection. It connects to port 21.&#xA;&#xA;- IMPLICIT: The client connects directly to port 990, port dedicated to secure connections.&#xA;&#xA;In case of taking any other value (including empty), the connection mode will be NONE and the value of the indicated port will be taken." Name="Mode" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Port to use for FTP connection." Name="Port" Type="InArgument(x:Int32)" />
+    <x:Property sap2010:Annotation.AnnotationText="Source path of the file to move in FTP." Name="FtpSourcePath" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property sap2010:Annotation.AnnotationText="Destination path of the file to move in FTP." Name="in_FtpDestinationPath" Type="InArgument(x:String)">
+    <x:Property sap2010:Annotation.AnnotationText="Destination path of the file to move in FTP." Name="FtpDestinationPath" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="Returns True if there have been errors in the execution and False if there have been no errors." Name="ExistingError" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap2010:Annotation.AnnotationText>UPTF000000C8eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiTW92ZSBhIGZpbGUgZnJvbSBGVFAgZm9sZGVyIHRvIG90aGVyIEZUUCBmb2xkZXIuIiwiPFZlcnNpb24+a19fQmFja2luZ0ZpZWxkIjoxfQ==</sap2010:Annotation.AnnotationText>
-  <sap:VirtualizedContainerService.HintSize>1062.4,1559.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>861.6,391.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Upload SFTP</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -106,18 +107,17 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Move a file from FTP folder to other FTP folder." DisplayName="Move FTP" sap:VirtualizedContainerService.HintSize="1072.8,1494.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Move a file from FTP folder to other FTP folder." DisplayName="Move FTP" sap:VirtualizedContainerService.HintSize="496,299.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch move file" sap:VirtualizedContainerService.HintSize="1010.4,1382.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch move file" sap:VirtualizedContainerService.HintSize="433.6,187.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try move file" sap:VirtualizedContainerService.HintSize="973.6,1151.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence DisplayName="Try move file" sap:VirtualizedContainerService.HintSize="973.6,967.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="FileName" />
           </Sequence.Variables>
@@ -126,11 +126,11 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[String.IsNullOrEmpty(in_Mode)]" DisplayName="If mode is null or empty" sap:VirtualizedContainerService.HintSize="911.2,271.2" sap2010:WorkflowViewState.IdRef="If_12">
+          <If Condition="[String.IsNullOrEmpty(Mode)]" DisplayName="If mode is null or empty" sap:VirtualizedContainerService.HintSize="911.2,271.2" sap2010:WorkflowViewState.IdRef="If_12">
             <If.Then>
               <Assign DisplayName="Assign mode &quot;&quot;" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_15">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[in_Mode]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[Mode]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="x:String">
@@ -154,41 +154,41 @@
               <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[Split(in_FtpSourcePath,"/").Last]</InArgument>
+              <InArgument x:TypeArguments="x:String">[Split(FtpSourcePath,"/").Last]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[not in_FtpDestinationPath.Last.ToString.Equals(&quot;/&quot;)]" DisplayName="If end in /" sap:VirtualizedContainerService.HintSize="911.2,241.6" sap2010:WorkflowViewState.IdRef="If_11">
+          <If Condition="[not FtpDestinationPath.Last.ToString.Equals(&quot;/&quot;)]" DisplayName="If end in /" sap:VirtualizedContainerService.HintSize="911.2,241.6" sap2010:WorkflowViewState.IdRef="If_11">
             <If.Then>
               <Assign DisplayName="Assign / + filename" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_16">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[in_FtpDestinationPath]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[FtpDestinationPath]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[in_FtpDestinationPath+"/"+FileName]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[FtpDestinationPath+"/"+FileName]</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Then>
             <If.Else>
               <Assign DisplayName="Assign file name in destination path" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_17">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[in_FtpDestinationPath]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String">[FtpDestinationPath]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[in_FtpDestinationPath+FileName]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[FtpDestinationPath+FileName]</InArgument>
                 </Assign.Value>
               </Assign>
             </If.Else>
           </If>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch mode" Expression="[in_Mode.ToUpper]" sap:VirtualizedContainerService.HintSize="911.2,324.8" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch mode" Expression="[Mode.ToUpper]" sap:VirtualizedContainerService.HintSize="911.2,164.8" sap2010:WorkflowViewState.IdRef="Switch`1_1">
             <Switch.Default>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="None Move File.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="None\None Move File.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Host">[in_Host]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_Pass">[in_Pass]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_User">[in_User]</InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Port">[in_Port]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FtpSourcePath">[in_FtpSourcePath]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_FtpDestinationPath">[in_FtpDestinationPath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Host">[Host]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Pass">[Pass]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_User">[User]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Port">[Port]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FtpSourcePath">[FtpSourcePath]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_FtpDestinationPath">[FtpDestinationPath]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </Switch.Default>
@@ -200,29 +200,29 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="EXPLICIT" DisplayName="Explicit Move File.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Explicit\Explicit Move File.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Host">[in_Host]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Pass">[in_Pass]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_User">[in_User]</InArgument>
-                <InArgument x:TypeArguments="x:Int32" x:Key="in_Port">[in_Port]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FtpSourcePath">[in_FtpSourcePath]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FtpDestinationPath">[in_FtpDestinationPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Host">[Host]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Pass">[Pass]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_User">[User]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_Port">[Port]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FtpSourcePath">[FtpSourcePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FtpDestinationPath">[FtpDestinationPath]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="IMPLICIT" DisplayName="Implicit Move File.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Implicit\Implicit Move File.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Host">[in_Host]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Pass">[in_Pass]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_User">[in_User]</InArgument>
-                <InArgument x:TypeArguments="x:Int32" x:Key="in_Port">[in_Port]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FtpSourcePath">[in_FtpSourcePath]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FtpDestinationPath">[in_FtpDestinationPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Host">[Host]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Pass">[Pass]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_User">[User]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_Port">[Port]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FtpSourcePath">[FtpSourcePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_FtpDestinationPath">[FtpDestinationPath]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Switch>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="976.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -233,7 +233,22 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Error Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[exception.Message]" />
+            <Sequence DisplayName="Catch Sequence" sap:VirtualizedContainerService.HintSize="496,326.4" sap2010:WorkflowViewState.IdRef="Sequence_27">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Error Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[exception.Message]" />
+              <Assign DisplayName="Assign boolError" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_18">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[ExistingError]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

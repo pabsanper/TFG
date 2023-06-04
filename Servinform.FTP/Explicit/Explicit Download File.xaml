@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>864,1636</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>676,1636</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Download_FTP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -77,6 +77,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Download File" sap:VirtualizedContainerService.HintSize="686.4,1571.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -103,7 +104,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log info Message" sap:VirtualizedContainerService.HintSize="528,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;You have connected to the FTP server&quot;]" />
+            <ui:LogMessage DisplayName="Log info Message" sap:VirtualizedContainerService.HintSize="528,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;You have connected to the FTP server: &quot;+in_Host]" />
             <p:FileExists ContinueOnError="False" DisplayName="File FTP Exists" Exists="[BoolExists]" sap:VirtualizedContainerService.HintSize="528,90.4" sap2010:WorkflowViewState.IdRef="FileExists_1" RemotePath="[in_FtpPath]" />
             <If Condition="[not BoolExists]" DisplayName="If file does not exist" sap:VirtualizedContainerService.HintSize="528,248.8" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>

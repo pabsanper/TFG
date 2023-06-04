@@ -1,27 +1,28 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property sap2010:Annotation.AnnotationText="Extension of the files to be moved. The input format is &quot;.&quot; followed by the extension. If left blank, all files in the folder will be moved regardless of the extension." Name="in_FileExtension" Type="InArgument(x:String)" />
-    <x:Property sap2010:Annotation.AnnotationText="If the field is True, files with the same name will be overwritten. If the field is False, files with the same name will not be overwritten." Name="in_Overwrite" Type="InArgument(x:Boolean)">
+    <x:Property sap2010:Annotation.AnnotationText="Extension of the files to be moved. The input format is &quot;.&quot; followed by the extension. If left blank, all files in the folder will be moved regardless of the extension." Name="FileExtension" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="If the field is True, files with the same name will be overwritten. If the field is False, files with the same name will not be overwritten." Name="Overwrite" Type="InArgument(x:Boolean)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property sap2010:Annotation.AnnotationText="Path of the folder from which you want to move files." Name="in_SourceFolder" Type="InArgument(x:String)">
+    <x:Property sap2010:Annotation.AnnotationText="Path of the folder from which you want to move files." Name="SourceFolder" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property sap2010:Annotation.AnnotationText="Path of the folder where you want to move the files to." Name="in_DestinationFolder" Type="InArgument(x:String)">
+    <x:Property sap2010:Annotation.AnnotationText="Path of the folder where you want to move the files to." Name="DestinationFolder" Type="InArgument(x:String)">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="Returns True if there have been errors in the execution and False if there have been no errors." Name="ExistingError" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap2010:Annotation.AnnotationText>UPTF0000015CeyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiTW92ZXMgZmlsZXMgZnJvbSB0aGUgc291cmNlIGZvbGRlciB0byB0aGUgZGVzdGluYXRpb24gZm9sZGVyLCBib3RoIGVudGVyZWQgYXMgaW5wdXQuIElmIHRoZSBleHRlbnNpb24gaXMgc3BlY2lmaWVkLCBmaWxlcyBjb250YWluaW5nIHRoZSBleHRlbnNpb24gd2lsbCBiZSBtb3ZlZC4iLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
-  <sap:VirtualizedContainerService.HintSize>1345.6,2636</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>861.6,391.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -86,10 +87,9 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>DocumentFormat.OpenXml</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Moves files from the source folder to the destination folder, both entered as input. If the extension is specified, files containing the extension will be moved." DisplayName="Move files in folder" sap:VirtualizedContainerService.HintSize="1356,2571.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
+  <Sequence sap2010:Annotation.AnnotationText="Moves files from the source folder to the destination folder, both entered as input. If the extension is specified, files containing the extension will be moved." DisplayName="Move files in folder" sap:VirtualizedContainerService.HintSize="496,299.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Default="0" Name="countError" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="countFile" />
@@ -99,130 +99,91 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[not Directory.Exists(in_SourceFolder)]" DisplayName="If source path exist" sap:VirtualizedContainerService.HintSize="1293.6,248.8" sap2010:WorkflowViewState.IdRef="If_11">
-      <If.Then>
-        <Throw DisplayName="Source Path" Exception="[new IOException(&quot;Source path '&quot;+in_SourceFolder+&quot;' does not exist&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_3" />
-      </If.Then>
-    </If>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each file in folder" sap:VirtualizedContainerService.HintSize="1293.6,2037.6" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[Directory.GetFiles(in_SourceFolder)]">
-      <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="x:String">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:String" Name="file" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="For each file" sap:VirtualizedContainerService.HintSize="1258.4,1912.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="fileName" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign file name" sap:VirtualizedContainerService.HintSize="1196,80.8" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Path.GetFileName(file.ToString)]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <If Condition="[not Directory.Exists(in_DestinationFolder)]" DisplayName="If destination folder exist" sap:VirtualizedContainerService.HintSize="1196,429.6" sap2010:WorkflowViewState.IdRef="If_8">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If.Then>
-                <Throw DisplayName="Destination Path" Exception="[new IOException(&quot;Destination path '&quot;+in_DestinationFolder+&quot;' does not exist&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_4" />
-              </If.Then>
-              <If.Else>
-                <If Condition="[not in_DestinationFolder.Last.Equals(&quot;\&quot;)]" DisplayName="If destination path end in &quot;\&quot;" sap:VirtualizedContainerService.HintSize="483.2,270.4" sap2010:WorkflowViewState.IdRef="If_6">
-                  <If.Then>
-                    <Assign DisplayName="Assign full destination folder" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_9">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[in_DestinationFolder]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[in_DestinationFolder+"\"]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_16">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </If.Else>
-            </If>
-            <Sequence DisplayName="Exist destination folder" sap:VirtualizedContainerService.HintSize="1196,1210.4" sap2010:WorkflowViewState.IdRef="Sequence_29">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[String.IsNullOrEmpty(in_FileExtension)]" DisplayName="If extension is null or empty" sap:VirtualizedContainerService.HintSize="1133.6,1098.4" sap2010:WorkflowViewState.IdRef="If_13">
-                <If.Then>
-                  <Sequence DisplayName="Move all files" sap:VirtualizedContainerService.HintSize="496,347.2" sap2010:WorkflowViewState.IdRef="Sequence_26">
+    <TryCatch DisplayName="Try Catch Overwrite" sap:VirtualizedContainerService.HintSize="433.6,187.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try Sequence" sap:VirtualizedContainerService.HintSize="1356,2572.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[not Directory.Exists(SourceFolder)]" DisplayName="If source path exist" sap:VirtualizedContainerService.HintSize="1293.6,249.6" sap2010:WorkflowViewState.IdRef="If_16">
+            <If.Then>
+              <Throw DisplayName="Source Path" Exception="[new IOException(&quot;Source path '&quot;+SourceFolder+&quot;' does not exist&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_7" />
+            </If.Then>
+          </If>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each file in folder" sap:VirtualizedContainerService.HintSize="1293.6,2040.8" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[Directory.GetFiles(SourceFolder)]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="For each file" sap:VirtualizedContainerService.HintSize="1258.4,1915.2" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="fileName" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign file name" sap:VirtualizedContainerService.HintSize="1196,81.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Path.GetFileName(file.ToString)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If Condition="[not Directory.Exists(DestinationFolder)]" DisplayName="If destination folder exist" sap:VirtualizedContainerService.HintSize="1196,431.2" sap2010:WorkflowViewState.IdRef="If_18">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Throw DisplayName="Destination Path" Exception="[new IOException(&quot;Destination path '&quot;+DestinationFolder+&quot;' does not exist&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_8" />
+                    </If.Then>
+                    <If.Else>
+                      <If Condition="[not DestinationFolder.Last.Equals(&quot;\&quot;)]" DisplayName="If destination path end in &quot;\&quot;" sap:VirtualizedContainerService.HintSize="483.2,271.2" sap2010:WorkflowViewState.IdRef="If_17">
+                        <If.Then>
+                          <Assign DisplayName="Assign full destination folder" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_11">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[DestinationFolder]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[DestinationFolder+"\"]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_33">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </If.Else>
+                  </If>
+                  <Sequence DisplayName="Exist destination folder" sap:VirtualizedContainerService.HintSize="1196,1210.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign DisplayName="Assign count file all" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[countFile]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:Int32">[countFile+1]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Try Catch Delete workflow all" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Try Catch Move.xaml">
-                      <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_SourcePath">[file]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_DestinationPath">[in_DestinationFolder+fileName]</InArgument>
-                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_Overwrite">[in_Overwrite]</InArgument>
-                        <InOutArgument x:TypeArguments="x:Int32" x:Key="io_Count">[countError]</InOutArgument>
-                      </ui:InvokeWorkflowFile.Arguments>
-                    </ui:InvokeWorkflowFile>
-                  </Sequence>
-                </If.Then>
-                <If.Else>
-                  <Sequence DisplayName="Move file by extension" sap:VirtualizedContainerService.HintSize="593.6,938.4" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[not System.Text.RegularExpressions.Regex.IsMatch(in_FileExtension,&quot;\.[a-zA-Z0-9]+$&quot;)]" DisplayName="If extension format is not correct" sap:VirtualizedContainerService.HintSize="531.2,249.6" sap2010:WorkflowViewState.IdRef="If_15">
+                    <If Condition="[String.IsNullOrEmpty(FileExtension)]" DisplayName="If extension is null or empty" sap:VirtualizedContainerService.HintSize="1133.6,1098.4" sap2010:WorkflowViewState.IdRef="If_21">
                       <If.Then>
-                        <Throw DisplayName="Wrong extension" Exception="[new Exception(&quot;The extension does not follow the correct format.&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_6" />
-                      </If.Then>
-                      <If.Else>
-                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <Sequence DisplayName="Move all files" sap:VirtualizedContainerService.HintSize="496,347.2" sap2010:WorkflowViewState.IdRef="Sequence_34">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                    <If Condition="[Path.GetExtension(file).Equals(in_FileExtension)]" DisplayName="If extension match" sap:VirtualizedContainerService.HintSize="531.2,536.8" sap2010:WorkflowViewState.IdRef="If_12">
-                      <If.Then>
-                        <Sequence DisplayName="Extension match" sap:VirtualizedContainerService.HintSize="496,347.2" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Assign count file extension" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign DisplayName="Assign count file all" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Int32">[countFile]</OutArgument>
                             </Assign.To>
@@ -230,33 +191,106 @@
                               <InArgument x:TypeArguments="x:Int32">[countFile+1]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Try Catch Delete workflow" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Try Catch Move.xaml">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Try Catch Delete workflow all" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Try Catch Move.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_SourcePath">
-                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="file" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_DestinationPath">
-                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_DestinationFolder+fileName" />
-                              </InArgument>
-                              <InArgument x:TypeArguments="x:Boolean" x:Key="in_Overwrite">
-                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_Overwrite" />
-                              </InArgument>
-                              <InOutArgument x:TypeArguments="x:Int32" x:Key="io_Count">
-                                <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="countError" />
-                              </InOutArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_SourcePath">[file]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_DestinationPath">[DestinationFolder+fileName]</InArgument>
+                              <InArgument x:TypeArguments="x:Boolean" x:Key="in_Overwrite">[Overwrite]</InArgument>
+                              <InOutArgument x:TypeArguments="x:Int32" x:Key="io_Count">[countError]</InOutArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                         </Sequence>
                       </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Move file by extension" sap:VirtualizedContainerService.HintSize="593.6,938.4" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[not System.Text.RegularExpressions.Regex.IsMatch(FileExtension,&quot;\.[a-zA-Z0-9]+$&quot;)]" DisplayName="If extension format is not correct" sap:VirtualizedContainerService.HintSize="531.2,249.6" sap2010:WorkflowViewState.IdRef="If_19">
+                            <If.Then>
+                              <Throw DisplayName="Wrong extension" Exception="[new Exception(&quot;The extension does not follow the correct format.&quot;)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="Throw_9" />
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <If Condition="[Path.GetExtension(file).Equals(FileExtension)]" DisplayName="If extension match" sap:VirtualizedContainerService.HintSize="531.2,536.8" sap2010:WorkflowViewState.IdRef="If_20">
+                            <If.Then>
+                              <Sequence DisplayName="Extension match" sap:VirtualizedContainerService.HintSize="496,347.2" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Assign count file extension" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">[countFile]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">[countFile+1]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Try Catch Delete workflow" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Try Catch Move.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_SourcePath">[file]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_DestinationPath">[DestinationFolder+fileName]</InArgument>
+                                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_Overwrite">[Overwrite]</InArgument>
+                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="io_Count">[countError]</InOutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
+                            </If.Then>
+                          </If>
+                        </Sequence>
+                      </If.Else>
                     </If>
                   </Sequence>
-                </If.Else>
-              </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+          <ui:LogMessage DisplayName="Log Message count" sap:VirtualizedContainerService.HintSize="1293.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[(countFile-countError).ToString+&quot;/&quot;+countFile.ToString+&quot; files have been moved&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Catch Sequence" sap:VirtualizedContainerService.HintSize="496,326.4" sap2010:WorkflowViewState.IdRef="Sequence_40">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Error moving file" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Error moving files: &quot;+exception.Message]" />
+              <Assign DisplayName="Assign bool error" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[ExistingError]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                </Assign.Value>
+              </Assign>
             </Sequence>
-          </Sequence>
-        </ActivityAction>
-      </ui:ForEach.Body>
-    </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message count" sap:VirtualizedContainerService.HintSize="1293.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[(countFile-countError).ToString+&quot;/&quot;+countFile.ToString+&quot; files have been moved&quot;]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
   </Sequence>
 </Activity>

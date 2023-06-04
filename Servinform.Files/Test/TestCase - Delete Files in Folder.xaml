@@ -64,6 +64,7 @@
   <Sequence DisplayName="TestCase___Delete_Files_in_Folder" sap:VirtualizedContainerService.HintSize="926.4,3000" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="newFolder" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolError" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -117,8 +118,15 @@
             <ui:LogMessage DisplayName="Log Info Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Run test that delete only txt files&quot;]" />
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Delete Files In Folder.xaml - With Extension" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Delete Files In Folder.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_PathFolder">[newFolder]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_FileExtension">[fileExtension]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="PathFolder">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="newFolder" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="FileExtension">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="fileExtension" />
+                </InArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="ExistingError">
+                  <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolError" />
+                </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -128,7 +136,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[not Directory.GetFiles(newFolder).Length.Equals(3)]" DisplayName="If filde has been deleted" sap:VirtualizedContainerService.HintSize="702.4,252.8" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[not boolError]" DisplayName="If filde has been deleted" sap:VirtualizedContainerService.HintSize="702.4,252.8" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <ui:LogMessage DisplayName="Log Txt Test Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Succeed test, txt file has been deleted&quot;]" />
               </If.Then>
@@ -150,8 +158,13 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Delete Files In Folder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Delete Files In Folder.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_PathFolder">[newFolder]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_FileExtension" />
+                    <InArgument x:TypeArguments="x:String" x:Key="PathFolder">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="newFolder" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="FileExtension" />
+                    <OutArgument x:TypeArguments="x:Boolean" x:Key="ExistingError">
+                      <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolError" />
+                    </OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
@@ -161,7 +174,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[Directory.GetFiles(newFolder).Length.Equals(0)]" DisplayName="If all files have been deleted" sap:VirtualizedContainerService.HintSize="577.6,252.8" sap2010:WorkflowViewState.IdRef="If_2">
+                <If Condition="[not boolError]" DisplayName="If all files have been deleted" sap:VirtualizedContainerService.HintSize="577.6,252.8" sap2010:WorkflowViewState.IdRef="If_2">
                   <If.Then>
                     <ui:LogMessage DisplayName="Log All files test Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Succeed test, all files have been deleted&quot;]" />
                   </If.Then>
@@ -175,7 +188,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="830.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -191,7 +204,14 @@
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <ui:DeleteFolderX DisplayName="Delete test Folder" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[newFolder]" Recursive="True" />
+        <Sequence sap:VirtualizedContainerService.HintSize="449.6,192.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:DeleteFolderX DisplayName="Delete test Folder" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[newFolder]" Recursive="True" />
+        </Sequence>
       </TryCatch.Finally>
     </TryCatch>
   </Sequence>

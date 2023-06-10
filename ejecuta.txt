@@ -1,0 +1,9 @@
+Para ejecutar las librerías es necesario crear un proceso de automatización en UiPath Studio, en el que el tipo de compatibilidad sea Windows-Legacy. Es necesario que el lenguaje sea Visua Basics. Una vez creado se importarán las librerías siguiendo los siguientes paso:
+
+	1) Se navegará hacia la sección Design>Manage Packages
+	2) Se abrirá una nueva ventana y entraremos en la sección de ajustes.
+	3) Se añadirá como fuente de paquetes la ruta en las que tengamos nuestras librerías.
+	4) Una vez añadida, dicha fuente nos aparecerá en el menú de la izquierda.
+	5) Dentro del menú de la fuente podremos elegir las librerías a instalar eligiendo la versión en el caso de que haya mas de una.
+
+Una vez importadas, podremos abrir un flujo de trabajo, y en el menú de actividades situado en la parte izquierda podremos arrastrar hacia el workflow cada una de las actividades asociadas a las funcionalidades desarrolladas.

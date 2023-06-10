@@ -1,0 +1,9 @@
+El proceso de compilar el código fuente es bastante sencillo. Para ello se necesita UiPath Studio. Una vez esté abierto el código fuente de la librería se seguirán los siguientes pasos:
+
+	1) Ve a la sección Desing>Publish. 
+	2) Aprecerá una nueva ventana en la que ya se han configurado la mayoría los parámetros. 
+	3) En Publish Options habría que indicar donde se guardará la librería compilada y empaquetada.
+	4) Opcionalmente se podría cambiar la versión de la librería. Por último se hará click en Publish.
+	5) Aparecerá un mensaje indicando que la librería se ha publicado exitosamente y algunos detalles de la compilación.
+
+Las librerías se guardarán en formato .nupkg para su posterior importación en proyectos.
